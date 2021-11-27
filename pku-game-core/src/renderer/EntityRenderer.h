@@ -7,13 +7,12 @@
 
 #include "BaseRenderer.h"
 
-class EntityRenderer : public BaseRenderer
-{
+class EntityRenderer : public BaseRenderer {
 private:
 
 public:
-    explicit EntityRenderer(RenderEngine&);
-    void render(World &world);
+  explicit EntityRenderer(RenderEngine&);
+  void render(World& world);
 };
 
 

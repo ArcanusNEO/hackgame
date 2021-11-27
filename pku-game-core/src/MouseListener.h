@@ -7,28 +7,27 @@
 
 
 class MainApplication;
-class MouseListener
-{
+class MouseListener {
 private:
-    MainApplication* app;
-    int x, y;
+  MainApplication* app;
+  int x, y;
 public:
-    explicit MouseListener(MainApplication&);
-    ~MouseListener();
+  explicit MouseListener(MainApplication&);
+  ~MouseListener();
 
-    int getMouseX();
-    int getMouseY();
-    int getMouseOffsetX();
-    int getMouseOffsetY();
-    void showCursor();
-    void hideCursor();
-    void enableCursor();
-    void disableCursor();
+  int getMouseX();
+  int getMouseY();
+  int getMouseOffsetX();
+  int getMouseOffsetY();
+  void showCursor();
+  void hideCursor();
+  void enableCursor();
+  void disableCursor();
 
-    bool isCursorHidden() const;
-    bool isMouseLeftPressed() const;
-    bool isMouseRightPressed() const;
-    bool isMouseMiddlePressed() const;
+  bool isCursorHidden() const;
+  bool isMouseLeftPressed() const;
+  bool isMouseRightPressed() const;
+  bool isMouseMiddlePressed() const;
 };
 
 

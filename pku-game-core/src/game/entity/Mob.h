@@ -7,12 +7,11 @@
 
 #include "Entity.h"
 
-class Mob : public Entity
-{
+class Mob : public Entity {
 public:
-    explicit Mob(World&);
+  explicit Mob(World&);
 
-    bool influencedByGravity() const override;
+  bool influencedByGravity() const override;
 };
 
 

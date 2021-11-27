@@ -7,17 +7,16 @@
 
 #include "BaseRenderer.h"
 
-class BlockRenderer : public BaseRenderer
-{
+class BlockRenderer : public BaseRenderer {
 private:
 
 public:
-    explicit BlockRenderer(RenderEngine&);
-    void render(World &world);
+  explicit BlockRenderer(RenderEngine&);
+  void render(World& world);
 
 private:
-    void renderBlocks(World& world);
-    void renderClouds(World& world);
+  void renderBlocks(World& world);
+  void renderClouds(World& world);
 };
 
 

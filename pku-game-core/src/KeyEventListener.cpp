@@ -7,24 +7,23 @@
 
 
 bool KeyEventListener::isKeyPressed(int key) const {
-    return ::IsKeyPressed(key);
+  return ::IsKeyPressed(key);
 }
 
 bool KeyEventListener::isKeyDown(int key) const {
-    return ::IsKeyDown(key);
+  return ::IsKeyDown(key);
 }
 
 bool KeyEventListener::isKeyReleased(int key) const {
-    return ::IsKeyReleased(key);
+  return ::IsKeyReleased(key);
 }
 
 bool KeyEventListener::isKeyUp(int key) const {
-    return ::IsKeyUp(key);
+  return ::IsKeyUp(key);
 }
 
-KeyEventListener::KeyEventListener(MainApplication & __app) {
-    app = &__app;
+KeyEventListener::KeyEventListener(MainApplication& __app) {
+  app = &__app;
 }
 
-KeyEventListener::~KeyEventListener() {
-}
+KeyEventListener::~KeyEventListener() {}

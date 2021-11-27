@@ -11,15 +11,14 @@
 class World;
 class Vec3f;
 class Vec3i;
-class Pathfinder
-{
+class Pathfinder {
 private:
-    Vec3i pi1, pi2;
-    Vec3f pf1, pf2;
+  Vec3i pi1, pi2;
+  Vec3f pf1, pf2;
 public:
-    Pathfinder(Vec3f const&, Vec3f const&);
+  Pathfinder(Vec3f const&, Vec3f const&);
 
-    Vec3f get(World &world);
+  Vec3f get(World& world);
 };
 
 

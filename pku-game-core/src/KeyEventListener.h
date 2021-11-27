@@ -7,18 +7,17 @@
 
 
 class MainApplication;
-class KeyEventListener
-{
+class KeyEventListener {
 private:
-    MainApplication* app;
+  MainApplication* app;
 public:
-    explicit KeyEventListener(MainApplication&);
-    ~KeyEventListener();
+  explicit KeyEventListener(MainApplication&);
+  ~KeyEventListener();
 
-    bool isKeyPressed(int) const;
-    bool isKeyDown(int) const;
-    bool isKeyReleased(int) const;
-    bool isKeyUp(int) const;
+  bool isKeyPressed(int) const;
+  bool isKeyDown(int) const;
+  bool isKeyReleased(int) const;
+  bool isKeyUp(int) const;
 };
 
 

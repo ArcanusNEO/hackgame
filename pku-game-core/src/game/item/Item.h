@@ -6,8 +6,7 @@
 #define PKU_GAME_CORE_ITEM_H
 
 
-class Item
-{
+class Item {
 
 };
 

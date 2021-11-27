@@ -7,41 +7,40 @@
 
 #include "Entity.h"
 
-class Slime : public Entity
-{
+class Slime : public Entity {
 private:
-    enum class ActionProcess{
-        READY, ROTATE, JUMP
-    };
-    float facing;
-    ActionProcess actionProcess;
-    float rotateAngel;
-    float targetRotatingAngel;
-    Vec3f targetJumpPosition;
-    Vec3f fromJumpPosition;
-    float jumpProcess;
-    float jumpSpeed;
+  enum class ActionProcess {
+    READY, ROTATE, JUMP
+  };
+  float facing;
+  ActionProcess actionProcess;
+  float rotateAngel;
+  float targetRotatingAngel;
+  Vec3f targetJumpPosition;
+  Vec3f fromJumpPosition;
+  float jumpProcess;
+  float jumpSpeed;
 public:
-    explicit Slime(World &);
+  explicit Slime(World&);
 
-    void tick() override;
+  void tick() override;
 
-    int getTypeId() const override;
+  int getTypeId() const override;
 
-    float getFacing() const;
+  float getFacing() const;
 
-    float getSize() const;
+  float getSize() const;
 
-    static const int TYPE_ID = 1;
+  static const int TYPE_ID = 1;
 
-    float getHeight();
+  float getHeight();
 
-    bool influencedByGravity() const override;
+  bool influencedByGravity() const override;
 
 private:
-    void rotate();
+  void rotate();
 
-    void jump();
+  void jump();
 };
 
 

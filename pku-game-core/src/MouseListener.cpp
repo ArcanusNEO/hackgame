@@ -5,66 +5,65 @@
 #include "MouseListener.h"
 #include "raylib.h"
 
-MouseListener::MouseListener(MainApplication & __app) {
-    app = &__app;
-    x = 0;
-    y = 0;
+MouseListener::MouseListener(MainApplication& __app) {
+  app = &__app;
+  x = 0;
+  y = 0;
 }
 
-MouseListener::~MouseListener() {
-}
+MouseListener::~MouseListener() {}
 
 int MouseListener::getMouseX() {
-    return x = ::GetMouseX();
+  return x = ::GetMouseX();
 }
 
 int MouseListener::getMouseY() {
-    return y = ::GetMouseY();
+  return y = ::GetMouseY();
 }
 
 int MouseListener::getMouseOffsetX() {
-    int t = x;
+  int t = x;
 
-    x = ::GetMouseX();
-    return x - t;
+  x = ::GetMouseX();
+  return x - t;
 }
 
 int MouseListener::getMouseOffsetY() {
-    int t = y;
+  int t = y;
 
-    y = ::GetMouseY();
-    return y - t;
+  y = ::GetMouseY();
+  return y - t;
 }
 
 void MouseListener::showCursor() {
-    ::ShowCursor();
+  ::ShowCursor();
 }
 
 void MouseListener::hideCursor() {
-    ::HideCursor();
+  ::HideCursor();
 }
 
 void MouseListener::enableCursor() {
-    ::EnableCursor();
+  ::EnableCursor();
 }
 
 void MouseListener::disableCursor() {
-    ::DisableCursor();
+  ::DisableCursor();
 }
 
 bool MouseListener::isCursorHidden() const {
-    return ::IsCursorHidden();
+  return ::IsCursorHidden();
 }
 
 bool MouseListener::isMouseLeftPressed() const {
-    return ::IsMouseButtonPressed(MOUSE_LEFT_BUTTON);
+  return ::IsMouseButtonPressed(MOUSE_LEFT_BUTTON);
 }
 
 bool MouseListener::isMouseRightPressed() const {
-    return ::IsMouseButtonPressed(MOUSE_RIGHT_BUTTON);
+  return ::IsMouseButtonPressed(MOUSE_RIGHT_BUTTON);
 }
 
 bool MouseListener::isMouseMiddlePressed() const {
-    return ::IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON);
+  return ::IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON);
 }
 

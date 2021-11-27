@@ -10,22 +10,21 @@ class BlockRenderer;
 class TextureManager;
 class EntityRenderer;
 class UIRenderer;
-class RenderEngine
-{
+class RenderEngine {
 private:
-    MainApplication* app;
-    BlockRenderer* blockRenderer;
-    TextureManager* textureManager;
-    EntityRenderer* entityRenderer;
-    UIRenderer* uiRenderer;
+  MainApplication* app;
+  BlockRenderer* blockRenderer;
+  TextureManager* textureManager;
+  EntityRenderer* entityRenderer;
+  UIRenderer* uiRenderer;
 public:
-    explicit RenderEngine(MainApplication&);
-    ~RenderEngine();
+  explicit RenderEngine(MainApplication&);
+  ~RenderEngine();
 
-    void initialize();
-    void render();
+  void initialize();
+  void render();
 
-    TextureManager& getTextureManager();
+  TextureManager& getTextureManager();
 };
 
 

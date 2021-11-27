@@ -4,11 +4,10 @@
 
 #include "Mob.h"
 
-bool Mob::influencedByGravity() const
-{
-    return true;
+bool Mob::influencedByGravity() const {
+  return true;
 }
 
-Mob::Mob(World & world) : Entity(world){
+Mob::Mob(World& world) : Entity(world) {
 
 }

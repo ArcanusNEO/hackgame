@@ -8,20 +8,19 @@
 
 #include "Entity.h"
 
-class Food : public Entity
-{
+class Food : public Entity {
 private:
-    float rotation;
+  float rotation;
 public:
-    explicit Food(World&);
+  explicit Food(World&);
 
-    float getRotation() const;
+  float getRotation() const;
 
-    void tick() override;
+  void tick() override;
 
-    int getTypeId() const override;
+  int getTypeId() const override;
 
-    static const int TYPE_ID = 2;
+  static const int TYPE_ID = 2;
 };
 
 

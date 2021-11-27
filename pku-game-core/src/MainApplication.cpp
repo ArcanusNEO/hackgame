@@ -6,88 +6,75 @@
 #include "MouseListener.h"
 #include "KeyEventListener.h"
 
-MainApplication::MainApplication()
-{
-    screenHeight = 936;
-    screenWidth = 1404;
-    windowName = "Slime Escape";
-    gameClient = new GameClient(*this);
-    renderEngine = new RenderEngine(*this);
-    keyEventListener = new KeyEventListener(*this);
-    mouseListener = new MouseListener(*this);
+MainApplication::MainApplication() {
+  screenHeight = 936;
+  screenWidth = 1404;
+  windowName = "Slime Escape";
+  gameClient = new GameClient(*this);
+  renderEngine = new RenderEngine(*this);
+  keyEventListener = new KeyEventListener(*this);
+  mouseListener = new MouseListener(*this);
 }
 
-MainApplication::~MainApplication()
-{
-    delete gameClient;
-    delete renderEngine;
-    delete keyEventListener;
-    delete mouseListener;
+MainApplication::~MainApplication() {
+  delete gameClient;
+  delete renderEngine;
+  delete keyEventListener;
+  delete mouseListener;
 }
 
-void MainApplication::main()
-{
-    InitWindow(screenWidth, screenHeight, windowName.c_str());
+void MainApplication::main() {
+  InitWindow(screenWidth, screenHeight, windowName.c_str());
 
-    SetTargetFPS(20);
+  SetTargetFPS(20);
 
-    gameClient->initialize();
-    renderEngine->initialize();
+  gameClient->initialize();
+  renderEngine->initialize();
 
 
-    //start render loop
-    while (!WindowShouldClose())
-    {
-        logicMutex.lock();
-        logicTick();
-        renderTick();
-        logicMutex.unlock();
-    }
+  //start render loop
+  while (!WindowShouldClose())     {
+    logicMutex.lock();
+    logicTick();
+    renderTick();
+    logicMutex.unlock();
+  }
 
-    CloseWindow();
+  CloseWindow();
 }
 
-void MainApplication::renderTick()
-{
-    renderEngine->render();
+void MainApplication::renderTick() {
+  renderEngine->render();
 }
 
-void MainApplication::logicTick()
-{
-    gameClient->tick();
+void MainApplication::logicTick() {
+  gameClient->tick();
 }
 
-GameClient &MainApplication::getGameClient()
-{
-    return *gameClient;
+GameClient& MainApplication::getGameClient() {
+  return *gameClient;
 }
 
-RenderEngine &MainApplication::getRenderEngine()
-{
-    return *renderEngine;
+RenderEngine& MainApplication::getRenderEngine() {
+  return *renderEngine;
 }
 
-KeyEventListener &MainApplication::getKeyEventListener()
-{
-    return *keyEventListener;
+KeyEventListener& MainApplication::getKeyEventListener() {
+  return *keyEventListener;
 }
 
-MouseListener &MainApplication::getMouseListener()
-{
-    return *mouseListener;
+MouseListener& MainApplication::getMouseListener() {
+  return *mouseListener;
 }
 
-const std::string &MainApplication::getWindowName() const
-{
-    return windowName;
+const std::string& MainApplication::getWindowName() const {
+  return windowName;
 }
 
-int MainApplication::getScreenWidth() const
-{
-    return screenWidth;
+int MainApplication::getScreenWidth() const {
+  return screenWidth;
 }
 
-int MainApplication::getScreenHeight() const
-{
-    return screenHeight;
+int MainApplication::getScreenHeight() const {
+  return screenHeight;
 }

@@ -15,67 +15,62 @@
 #include "game/world/World.h"
 #include "game/entity/Player.h"
 
-RenderEngine::RenderEngine(MainApplication &application)
-{
-    app = &application;
-    textureManager = new TextureManager(*this);
+RenderEngine::RenderEngine(MainApplication& application) {
+  app = &application;
+  textureManager = new TextureManager(*this);
 
-    blockRenderer = new BlockRenderer(*this);
+  blockRenderer = new BlockRenderer(*this);
 
-    entityRenderer = new EntityRenderer(*this);
+  entityRenderer = new EntityRenderer(*this);
 
-    uiRenderer = new UIRenderer(*this);
+  uiRenderer = new UIRenderer(*this);
 }
 
-RenderEngine::~RenderEngine()
-{
-    delete textureManager;
-    delete blockRenderer;
-    delete entityRenderer;
-    delete uiRenderer;
+RenderEngine::~RenderEngine() {
+  delete textureManager;
+  delete blockRenderer;
+  delete entityRenderer;
+  delete uiRenderer;
 }
 
-void RenderEngine::initialize()
-{
-    textureManager->initialize();
+void RenderEngine::initialize() {
+  textureManager->initialize();
 }
 
-void RenderEngine::render()
-{
-    auto &world = app->getGameClient().getWorld();
-    auto *player = world.getPlayer();
-    Camera3D camera = {0};
-    Vec3f cameraPosition = player->getPosition() + player->getEyePos();
-    camera.position = (Vector3) {cameraPosition.x, cameraPosition.y, cameraPosition.z};
-    float targetX = std::cos(player->getPitch()) * std::cos(player->getYaw());
-    float targetY = std::sin(player->getPitch());
-    float targetZ = std::cos(player->getPitch()) * std::sin(player->getYaw());
-    targetX += cameraPosition.x;
-    targetY += cameraPosition.y;
-    targetZ += cameraPosition.z;
-    camera.target = (Vector3) {targetX, targetY, targetZ};
-    camera.up = (Vector3) {0.0f, 1.0f, 0.0f};
-    camera.fovy = 45.0f;
-    camera.projection = CAMERA_PERSPECTIVE;
+void RenderEngine::render() {
+  auto& world = app->getGameClient().getWorld();
+  auto* player = world.getPlayer();
+  Camera3D camera = {0};
+  Vec3f cameraPosition = player->getPosition() + player->getEyePos();
+  camera.position = (Vector3){cameraPosition.x, cameraPosition.y, cameraPosition.z};
+  float targetX = std::cos(player->getPitch()) * std::cos(player->getYaw());
+  float targetY = std::sin(player->getPitch());
+  float targetZ = std::cos(player->getPitch()) * std::sin(player->getYaw());
+  targetX += cameraPosition.x;
+  targetY += cameraPosition.y;
+  targetZ += cameraPosition.z;
+  camera.target = (Vector3){targetX, targetY, targetZ};
+  camera.up = (Vector3){0.0f, 1.0f, 0.0f};
+  camera.fovy = 45.0f;
+  camera.projection = CAMERA_PERSPECTIVE;
 
-    SetCameraMode(camera, CAMERA_PERSPECTIVE);
-    UpdateCamera(&camera);
+  SetCameraMode(camera, CAMERA_PERSPECTIVE);
+  UpdateCamera(&camera);
 
-    BeginDrawing();
-    BeginMode3D(camera);
+  BeginDrawing();
+  BeginMode3D(camera);
 
-    blockRenderer->render(world);
-    entityRenderer->render(world);
+  blockRenderer->render(world);
+  entityRenderer->render(world);
 
-    EndMode3D();
+  EndMode3D();
 
-    uiRenderer->render(world, app->getGameClient(), *app);
+  uiRenderer->render(world, app->getGameClient(), *app);
 
 
-    EndDrawing();
+  EndDrawing();
 }
 
-TextureManager &RenderEngine::getTextureManager()
-{
-    return *textureManager;
+TextureManager& RenderEngine::getTextureManager() {
+  return *textureManager;
 }

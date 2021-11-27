@@ -8,27 +8,26 @@
 class MainApplication;
 class World;
 
-class GameClient
-{
+class GameClient {
 private:
-    MainApplication* application;
-    World* world;
-    bool paused;
+  MainApplication* application;
+  World* world;
+  bool paused;
 public:
-    explicit GameClient(MainApplication&);
-    ~GameClient();
+  explicit GameClient(MainApplication&);
+  ~GameClient();
 
-    void initialize();
-    void tick();
+  void initialize();
+  void tick();
 
-    World& getWorld();
+  World& getWorld();
 
-    bool isGamePaused() const;
-    void setGamePaused(bool);
+  bool isGamePaused() const;
+  void setGamePaused(bool);
 
 private:
-    void handleMouseEvent();
-    void handleKeyboardEvent();
+  void handleMouseEvent();
+  void handleKeyboardEvent();
 };
 
 

@@ -8,36 +8,35 @@ class GameClient;
 class RenderEngine;
 class KeyEventListener;
 class MouseListener;
-class MainApplication
-{
+class MainApplication {
 private:
-    GameClient* gameClient;
-    RenderEngine* renderEngine;
-    KeyEventListener* keyEventListener;
-    MouseListener* mouseListener;
-    int screenWidth;
-    int screenHeight;
-    std::string windowName;
-    std::mutex logicMutex;
+  GameClient* gameClient;
+  RenderEngine* renderEngine;
+  KeyEventListener* keyEventListener;
+  MouseListener* mouseListener;
+  int screenWidth;
+  int screenHeight;
+  std::string windowName;
+  std::mutex logicMutex;
 public:
-    MainApplication();
-    ~MainApplication();
+  MainApplication();
+  ~MainApplication();
 
-    void main();
-    GameClient& getGameClient();
-    RenderEngine& getRenderEngine();
-    KeyEventListener& getKeyEventListener();
-    MouseListener& getMouseListener();
+  void main();
+  GameClient& getGameClient();
+  RenderEngine& getRenderEngine();
+  KeyEventListener& getKeyEventListener();
+  MouseListener& getMouseListener();
 
-    int getScreenWidth() const;
+  int getScreenWidth() const;
 
-    int getScreenHeight() const;
+  int getScreenHeight() const;
 
-    const std::string &getWindowName() const;
+  const std::string& getWindowName() const;
 
 private:
-    void renderTick();
-    void logicTick();
+  void renderTick();
+  void logicTick();
 };
 
 

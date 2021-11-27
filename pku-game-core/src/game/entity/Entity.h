@@ -11,39 +11,38 @@
 
 class World;
 
-class Entity
-{
+class Entity {
 protected:
-    World *world;
-    Vec3f position;
-    std::optional<AABB> aabb;
-    float fallingSpeed;
+  World* world;
+  Vec3f position;
+  std::optional<AABB> aabb;
+  float fallingSpeed;
 public:
-    explicit Entity(World &);
+  explicit Entity(World&);
 
-    virtual ~Entity();
+  virtual ~Entity();
 
-    virtual void tick();
+  virtual void tick();
 
-    virtual const Vec3f &getPosition() const;
+  virtual const Vec3f& getPosition() const;
 
-    virtual World &getWorld() const;
+  virtual World& getWorld() const;
 
-    virtual void move(Vec3f const &);
+  virtual void move(Vec3f const&);
 
-    const std::optional<AABB> &getAABB() const;
+  const std::optional<AABB>& getAABB() const;
 
-    virtual bool collideWithBlocks(Vec3f const& ) const;
+  virtual bool collideWithBlocks(Vec3f const&) const;
 
-    virtual bool influencedByGravity() const;
+  virtual bool influencedByGravity() const;
 
-    virtual void gravityInfluencedFall();
+  virtual void gravityInfluencedFall();
 
-    virtual float getGravity() const;
+  virtual float getGravity() const;
 
-    virtual int getTypeId() const = 0;
+  virtual int getTypeId() const = 0;
 
-    virtual void setPos(Vec3f const& );
+  virtual void setPos(Vec3f const&);
 };
 
 

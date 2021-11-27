@@ -9,11 +9,10 @@
 
 class GameClient;
 class MainApplication;
-class UIRenderer : public BaseRenderer
-{
+class UIRenderer : public BaseRenderer {
 public:
-    explicit UIRenderer(RenderEngine&);
-    void render(World &world, GameClient&, MainApplication&);
+  explicit UIRenderer(RenderEngine&);
+  void render(World& world, GameClient&, MainApplication&);
 };
 
 

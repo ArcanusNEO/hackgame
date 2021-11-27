@@ -8,20 +8,19 @@
 #include <string>
 #include <util/AABB.h>
 
-class Block
-{
+class Block {
 private:
-    std::string texture;
-    std::string id;
+  std::string texture;
+  std::string id;
 public:
-    Block(std::string  id, std::string  texture);
-    virtual ~Block();
+  Block(std::string  id, std::string  texture);
+  virtual ~Block();
 
-    virtual const std::string &getTexture() const;
+  virtual const std::string& getTexture() const;
 
-    virtual const std::string &getId() const;
+  virtual const std::string& getId() const;
 
-    virtual AABB getAABB() const;
+  virtual AABB getAABB() const;
 };
 
 

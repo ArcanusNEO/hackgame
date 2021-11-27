@@ -7,16 +7,15 @@
 
 class World;
 class RenderEngine;
-class BaseRenderer
-{
+class BaseRenderer {
 protected:
-    RenderEngine* renderEngine;
+  RenderEngine* renderEngine;
 public:
-    explicit BaseRenderer(RenderEngine&);
-    virtual ~BaseRenderer();
+  explicit BaseRenderer(RenderEngine&);
+  virtual ~BaseRenderer();
 
 protected:
-    RenderEngine& getRenderEngine();
+  RenderEngine& getRenderEngine();
 };
 
 
